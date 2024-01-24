@@ -9,7 +9,7 @@ from tensorflow.keras.preprocessing import image
 import numpy as np
 
 
-classes = ["20歳以下","20代","30代","40代","50代","60代","70代","80代","90代"]
+classes = ["0～30歳","30～60歳","60歳以上"]
 image_size = 224
 
 UPLOAD_FOLDER = "uploads"
@@ -20,7 +20,7 @@ app = Flask(__name__)
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-model = load_model('./MobileNet.h5', compile=False)#学習済みモデルをロード
+model = load_model('./MobileNet_77%.h5', compile=False)#学習済みモデルをロード
 
 
 @app.route('/', methods=['GET', 'POST'])
